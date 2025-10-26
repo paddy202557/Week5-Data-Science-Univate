@@ -39,7 +39,7 @@ class QQUnivariate():
                     
     def Univariate(Quan1,dataset):
         descriptive=pd.DataFrame(index=["Mean", "Median", "Mode","Q1:25%", "Q2:50%", "Q3:75%", "Q4:100%","99%",
-                                "IQR","1.5rule","Lesser","Greater","Min","Max","kurtosis","skew"],columns=Quan1)
+                                "IQR","1.5rule","Lesser","Greater","Min","Max","kurtosis","skew","Var","Std"],columns=Quan1)
         for columnName in Quan1:
             descriptive[columnName]["Mean"]=round(dataset[columnName].mean())
             descriptive[columnName]["Median"]=dataset[columnName].median()
@@ -63,4 +63,6 @@ class QQUnivariate():
             descriptive[columnName]["Max"] =dataset[columnName].max()
             descriptive[columnName]["kurtosis"]=dataset[columnName].kurtosis()
             descriptive[columnName]["skew"]=dataset[columnName].skew()
+            descriptive[columnName]["Var"]=dataset[columnName].var()
+            descriptive[columnName]["Std"]=dataset[columnName].std()
         return descriptive   
